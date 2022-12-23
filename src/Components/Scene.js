@@ -28,13 +28,11 @@ const Scene = () => {
 
   return (
     <>
-      <Scroll>
-        <Portfolio reference={boxGeometry} distance={objectDistance} />
+      <Portfolio reference={boxGeometry} distance={objectDistance} />
 
-        <Skills reference={coneGeometry} distance={objectDistance} />
-        <About reference={sphereGeometry} distance={objectDistance} />
-        <Contact reference={tubeGeometry} distance={objectDistance} />
-      </Scroll>
+      <Skills reference={coneGeometry} distance={objectDistance} />
+      <About reference={sphereGeometry} distance={objectDistance} />
+      <Contact reference={tubeGeometry} distance={objectDistance} />
       <Bg />
     </>
   );

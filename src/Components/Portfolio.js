@@ -1,9 +1,13 @@
 import { useGLTF } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { TextureLoader } from "three/src/loaders/TextureLoader.js";
+import gsap from "gsap";
+import { useRef, useState } from "react";
 
 const Portfolio = ({ ...props }) => {
+  const polaroidRef = useRef();
+
   const { nodes } = useGLTF("./Models/polaroid.glb");
 
   const colorMap = useLoader(
@@ -45,38 +49,31 @@ const Portfolio = ({ ...props }) => {
         color={"#eaeaea"}
         groundColor={"#000000"}
         intensity={0.75}
-        position={[0, 1, 0]}
+        position={[0, 0, 0]}
       />
       <pointLight
         intensity={4}
-        castShadow
+        // castShadow
         decay={20}
-        distance={4000}
+        distance={100}
         color={"#f7cca7"}
-        position={[-2.5, 3, 2]}
+        position={[-4, -2, 1]}
       />
       <directionalLight
         castShadow
-        intensity={0.75}
+        intensity={1}
         shadow-mapSize-width={256}
         shadow-mapSize-height={256}
-        shadow-camera-near={1}
-        shadow-camera-far={2500}
-        shadow-camera-left={-1200}
-        shadow-camera-right={1200}
-        shadow-camera-top={1200}
-        shadow-camera-bottom={-1200}
         color="#fee5dd"
-        position={[-10, 20, 30]}
+        position={[0, 1, 10]}
       />
-      {/* <rectAreaLight
-        rotation={[0, -Math.PI / 2, 0]}
-        position={[-4, 0, 0]}
-        intensity={2}
-      /> */}
-      <group position={[0, 2, 0]} scale={1.5} rotation={[0, 0, 0]}>
+      <group
+        position={[0, 2, 0]}
+        scale={1.5}
+        rotation={[0, 0, 0]}
+        ref={polaroidRef}
+      >
         <mesh
-          ref={props.reference}
           position={[0, -props.distance * 0.15, 0]}
           geometry={nodes.polaroid_geo.geometry}
           castShadow
@@ -91,7 +88,6 @@ const Portfolio = ({ ...props }) => {
           />
         </mesh>
         <mesh
-          // ref={props.reference}
           position={[0, -props.distance * 0.15, 0]}
           geometry={nodes.screen_geo.geometry}
           receiveShadow
@@ -100,7 +96,6 @@ const Portfolio = ({ ...props }) => {
         >
           <meshStandardMaterial
             side={THREE.DoubleSide}
-            // color="#80a3ca"
             map={portfolioPicture}
             roughness={1}
             metalness={0}

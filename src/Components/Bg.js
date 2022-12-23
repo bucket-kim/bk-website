@@ -25,17 +25,17 @@ const Bg = () => {
   return (
     <>
       <mesh
-        position={[0, 0, -1]}
+        position={[0, 0, -30]}
         receiveShadow
         // geometry={new THREE.PlaneGeometry(2, 2, 1, 1)}
       >
         <planeGeometry
           attach={"geometry"}
-          args={[window.innerWidth / 20, window.innerHeight / 10]}
+          args={[window.innerWidth / 10, window.innerHeight / 10]}
         />
-        {/* <backgroundMaterial ref={backgroundMaterial} />
-         */}
-        <shadowMaterial opacity={0.2} />
+        <backgroundMaterial ref={backgroundMaterial} />
+
+        {/* <shadowMaterial opacity={0.2} /> */}
       </mesh>
     </>
   );
