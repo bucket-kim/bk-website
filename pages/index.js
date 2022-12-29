@@ -1,5 +1,5 @@
-import Overlay from "./Overlay.js";
-import Scene from "./Scene.js";
+import Overlay from "./Components/Overlay.js";
+import Scene from "./Components/Scene.js";
 
 export default function Home() {
   return (

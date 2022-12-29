@@ -4,24 +4,21 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Overlay = () => {
-  const [show, setShow] = useState(true);
-
   return (
     <motion.div
       initial={{ y: -1000 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      exit={{ opacity: 0 }}
     >
-      <div className="bg-gradient-to-b from-cyan-500 to-blue-500 h-screen">
+      <div className=" h-screen">
         <div className="flex flex-col items-center place-content-center h-full">
-          <h1 className="text-9xl text-white font-bold">Brian Kim</h1>
-          <h2 className="text-4xl text-white opacity-50">Website</h2>
-          <Link href="./Scene">
+          <h1 className="text-9xl text-black font-bold">Brian Kim</h1>
+          <h2 className="text-4xl text-black opacity-50">Website</h2>
+          <Link href="./Components/Scene">
             <motion.div
-              className="text-3xl pt-6 text-white cursor-pointer
+              className="text-3xl pt-6 text-black cursor-pointer
             "
-              whileHover={{ scale: 1.4, color: "#ffc700" }}
+              whileHover={{ scale: 1.4, color: "#1666ba" }}
             >
               enter
             </motion.div>

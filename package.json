@@ -9,13 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "13.1.0",
+    "@next/font": "13.1.1",
     "@react-three/drei": "^9.48.1",
     "@react-three/fiber": "^8.9.1",
+    "@splinetool/loader": "^0.9.169",
+    "@splinetool/r3f-spline": "^1.0.2",
+    "@splinetool/react-spline": "^2.2.5",
     "eslint": "8.30.0",
-    "eslint-config-next": "13.1.0",
-    "framer-motion": "^8.0.1",
-    "next": "13.1.0",
+    "eslint-config-next": "13.1.1",
+    "framer-motion": "^8.0.2",
+    "i": "^0.3.7",
+    "next": "13.1.1",
+    "npm": "^9.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1"
