@@ -9,6 +9,13 @@ const Model = () => {
   const NormalMap = useTexture("/textures/items_Normal.png");
   const Roughness = useTexture("/textures/items_Roughness.png");
 
+  const tableNormal = useTexture("/textures/table/beige_Normal.jpg");
+  const tableDiffuse = useTexture("/textures/table/beige_Diffuse.jpg");
+  const tableAO = useTexture("/textures/table/beige_AO.jpg");
+  const tableRoughness = useTexture("/textures/table/beige_Roughness.jpg");
+
+  tableAO.encoding = THREE.sRGBEncoding;
+
   colorMap.flipY = false;
   MetalnessMap.flipY = false;
   NormalMap.flipY = false;
@@ -23,7 +30,7 @@ const Model = () => {
           geometry={nodes.items_geo.geometry}
           castShadow
           receiveShadow
-          position={[0, 0, 0]}
+          position={[0, 0, -0.425]}
         >
           <meshStandardMaterial
             map={colorMap}
@@ -57,34 +64,35 @@ const Model = () => {
           geometry={nodes.polaroid_geo.geometry}
           castShadow
           receiveShadow
-          position={[0, 0, 0]}
+          position={[-0.55, 0.001, 0.1]}
         >
           <meshStandardMaterial
             map={colorMap}
             metalnessMap={MetalnessMap}
             roughnessMap={Roughness}
+            side={THREE.DoubleSide}
           />
         </mesh>
-        <mesh
-          geometry={nodes.macbook_geo.geometry}
-          castShadow
-          receiveShadow
-          position={[0, 0, 0]}
-        >
-          <meshStandardMaterial
-            map={colorMap}
-            metalnessMap={MetalnessMap}
-            roughnessMap={Roughness}
-          />
-        </mesh>
+        <group position={[0.75, 0, 0]}>
+          <mesh geometry={nodes.macbook_geo.geometry} castShadow receiveShadow>
+            <meshStandardMaterial
+              map={colorMap}
+              metalnessMap={MetalnessMap}
+              roughnessMap={Roughness}
+            />
+          </mesh>
+          <mesh geometry={nodes.screen_geo.geometry} castShadow receiveShadow>
+            <meshStandardMaterial color={"#000000"} />
+          </mesh>
+        </group>
       </group>
       <mesh
         receiveShadow
         rotation={[-Math.PI * 0.5, 0, 0]}
         position={[0, 0, 0]}
       >
-        <planeGeometry args={[2000, 2000]} />
-        <shadowMaterial opacity={0.5} />
+        <planeGeometry args={[1000, 1000]} />
+        <shadowMaterial opacity={0.2} />
       </mesh>
     </>
   );
