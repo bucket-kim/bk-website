@@ -38,7 +38,7 @@ const Model = () => {
             roughnessMap={Roughness}
           />
         </mesh>
-        <group position={[0, 0, 0]} scale={1}>
+        <group position={[0, 0, 0]}>
           <mesh
             geometry={nodes.iphone_geo.geometry}
             castShadow
@@ -64,7 +64,7 @@ const Model = () => {
           geometry={nodes.polaroid_geo.geometry}
           castShadow
           receiveShadow
-          position={[-0.55, 0.001, 0.1]}
+          position={[-0.6, 0.001, 0.1]}
         >
           <meshStandardMaterial
             map={colorMap}
@@ -73,7 +73,7 @@ const Model = () => {
             side={THREE.DoubleSide}
           />
         </mesh>
-        <group position={[0.75, 0, 0]}>
+        <group position={[0.75, 0, -0.1]}>
           <mesh geometry={nodes.macbook_geo.geometry} castShadow receiveShadow>
             <meshStandardMaterial
               map={colorMap}

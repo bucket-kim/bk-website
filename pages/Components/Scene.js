@@ -33,7 +33,7 @@ const Scene = () => {
           decay={20}
           distance={8222}
           color={"#ffefd3"}
-          position={[170, 58, -100]}
+          position={[170, 50, -150]}
         />
         <directionalLight
           castShadow
