@@ -2,28 +2,22 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 import { motion } from "framer-motion";
+import Overlay from "./Components/Overlay";
 
 import css from "../styles/Home.module.css";
 
 const Scene = () => {
-  // console.log(useGLTF("/items.glb"));
-
   return (
-    <motion.div
-      className={css.scene}
-      initial={{ y: 1000 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-      // exit={{ y: 1000, opacity: 0 }}
-    >
-      <Canvas>
-        <OrbitControls />
-        <mesh>
-          <boxGeometry />
-          <meshNormalMaterial />
-        </mesh>
+    <motion.div className={css.scene}>
+      <Canvas
+        camera={{
+          position: [0, 0, 10],
+          fov: 75,
+        }}
+      >
+        <OrbitControls enabled={false} />
+        <Overlay />
       </Canvas>
-      {/* <h2 className="text-9xl">HI</h2> */}
     </motion.div>
   );
 };
